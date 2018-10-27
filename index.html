@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>web</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
+<script language="javascript" src="js/mjfx.js" type="text/javascript"></script>
+
+</head>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+
+<center>
+  <div class="shouye">
+    <div class="top">
+      <div class="topleft">Company Name </div>
+      <div class="topright">
+        <div class="menu">
+          <ul>
+            <li><a  href="#">Welcome</a> </li>
+            <li><a  href="page1.html">menu</a> </li>
+            <li><a  href="#">recommand</a> </li>
+            <li><a  href="page1.html">contact</a> </li>
+          </ul>
+          <div class="clear"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sydt">
+    <div class="flash">
+      <ul class="con">
+        <li style="background:url(images/banner1.jpg) center no-repeat; z-index:-1;"></li>
+        <li style="background:url(images/banner2.jpg) center no-repeat;"></li>
+        <li style="background:url(images/banner3.jpg) center no-repeat;"></li>
+      </ul>
+      <ul class="but">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+
+ <script type="text/javascript">
+	var index=0;
+	var playCount=null;
+	
+	$(".but li").hover(function(){
+		clearInterval(playCount);
+		$(this).addClass("current").siblings().removeClass("current");
+		index = $(this).index();
+		$(".con li").eq(index).fadeIn().siblings().fadeOut();
+		//alert(index);
+		
+	}).mouseout(function(){
+		auto_play();
+	});
+
+	function auto_play(){
+		playCount=setInterval(function(){
+			index++;
+			if(index > 3){index=0;}
+			$(".but li").eq(index).addClass("current").siblings().removeClass("current");	
+			$(".con li").eq(index).fadeIn().siblings().fadeOut();
+		},3000);
+		
+	};
+	
+	auto_play();
+	
+</script>
+ <div class="footer2">
+  © Copyright </div>
+
+</center>
+</body>
+</html>
